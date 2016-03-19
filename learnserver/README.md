@@ -1,5 +1,5 @@
 # LearnServer
-Learn how server runs and advantages and disadvantages of different implementations.
+Learning how server runs and advantages and disadvantages of different implementations.
 
 Python2/3 could run these scripts well. And the HTTP performance test uses wrk as test tool, python3.5.1 as test environment.
 
@@ -58,7 +58,7 @@ Python2/3 could run these scripts well. And the HTTP performance test uses wrk a
 
 ## prefork_server.py
 
-* **Only run in Linux.**
+* **Only run on Linux.**
 * Prefork many processes to handle request.
 
 　　HTTP Performance Test Result:  
@@ -109,7 +109,7 @@ Python2/3 could run these scripts well. And the HTTP performance test uses wrk a
 
 ## noblocking_server.py
 
-* **Only run in Linux.**
+* **Only run on Linux.**
 * Accept, recv and send with noblocking.
 * If there is no new connection, server will come into empty loop, which is called busy wait.
 
@@ -127,7 +127,7 @@ Python2/3 could run these scripts well. And the HTTP performance test uses wrk a
 
 ## multiplexingio_server.py
 
-* **Only run in Linux.**
+* **Only run on Linux.**
 * Accept, recv and send with noblocking, but select with blocking.
 
 　　HTTP Performance Test Result:  

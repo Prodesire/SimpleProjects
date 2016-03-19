@@ -1,5 +1,5 @@
 #coding:utf-8
-# Only run in Linux
+# Only run on Linux
 
 import os, sys
 import fcntl
