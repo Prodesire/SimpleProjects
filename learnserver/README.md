@@ -32,3 +32,18 @@ HTTP Performance Test Result:
 　　3380 requests in 10.01s, 240.96KB read  
 　Requests/sec:    337.54  
 　Transfer/sec:     24.06KB
+
+## cgi_threading_server
+
+* Using threading other than multiprocessing to build server, same like cgi way.
+
+HTTP Performance Test Result:  
+　wrk http://127.0.0.1:8080  
+　Running 10s test @ http://127.0.0.1:8080  
+　　2 threads and 10 connections  
+　　　Thread Stats   Avg      Stdev     Max   +/- Stdev  
+　　　Latency     2.55ms  190.66us   4.96ms   92.99%  
+　　　Req/Sec     1.94k   132.20     3.73k    99.50%  
+　　38763 requests in 10.10s, 2.70MB read  
+　Requests/sec:   3838.05  
+　Transfer/sec:    273.61KB  
