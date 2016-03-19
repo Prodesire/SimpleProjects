@@ -3,7 +3,8 @@ Learn how server runs and advantages and disadvantages of different implementati
 
 Python2/3 could run these scripts well. And the HTTP performance test uses wrk as test tool, python3.5.1 as test environment.
 
-## simple_server
+
+## simple_server.py
 
 * Using socket to build a simple server.
 * Accept and recv block each other, so the server cannot handle multi-request in one time.
@@ -19,7 +20,8 @@ HTTP Performance Test Result:
 　Requests/sec:   7610.66  
 　Transfer/sec:    542.56KB
 
-## cgi_server
+
+## cgi_server.py
 
 * Using cgi way to solve the problem that accept and recv block each other.
 * Split accept and recv in different process.
@@ -36,7 +38,8 @@ HTTP Performance Test Result:
 　Requests/sec:    337.54  
 　Transfer/sec:     24.06KB
 
-## cgi_threading_server
+
+## cgi_threading_server.py
 
 * Using threading other than multiprocessing to build server, same like cgi way.
 * When there is a request, start a new thread to handle it.
@@ -51,3 +54,53 @@ HTTP Performance Test Result:
 　　38763 requests in 10.10s, 2.70MB read  
 　Requests/sec:   3838.05  
 　Transfer/sec:    273.61KB  
+
+
+## prefork_server.py
+
+* Prefork many processes to handle request.
+
+HTTP Performance Test Result:  
+　wrk http://127.0.0.1:8080  
+　Running 10s test @ http://127.0.0.1:8080  
+　　2 threads and 10 connections  
+　　Thread Stats   Avg      Stdev     Max   +/- Stdev  
+　　　Latency   609.96us  301.52us   2.36ms   61.05%  
+　　　Req/Sec     4.13k   158.06     4.60k    71.00%  
+　　82264 requests in 10.01s, 5.73MB read  
+　Requests/sec:   8220.92  
+　Transfer/sec:    586.06KB
+
+
+## threadpool1_server.py
+
+* Using thread pool to handle request.
+* Accept in main loop and recv and send in child threads.
+
+HTTP Performance Test Result:  
+　wrk http://127.0.0.1:8080  
+　Running 10s test @ http://127.0.0.1:8080  
+　　2 threads and 10 connections  
+　　Thread Stats   Avg      Stdev     Max   +/- Stdev  
+　　　Latency     1.73ms  106.76us   3.18ms   94.69%  
+　　　Req/Sec     2.83k    50.54     3.06k    74.00%  
+　　56254 requests in 10.00s, 3.92MB read  
+　Requests/sec:   5623.53  
+　Transfer/sec:    400.90KB
+
+
+## threadpool2_server.py
+
+* Using thread pool to handle request.
+* Accept, recv and send in child threads.
+
+HTTP Performance Test Result:  
+　wrk http://127.0.0.1:8080  
+　Running 10s test @ http://127.0.0.1:8080  
+　　2 threads and 10 connections  
+　　Thread Stats   Avg      Stdev     Max   +/- Stdev  
+　　　Latency   637.33us  292.15us   4.29ms   61.94%  
+　　　Req/Sec     4.07k   120.03     4.46k    67.50%  
+　　81087 requests in 10.01s, 5.65MB read  
+　Requests/sec:   8103.66  
+　Transfer/sec:    577.70KB
