@@ -1,6 +1,8 @@
 # LearnServer
 Learn how server runs and advantages and disadvantages of different implementations.
 
+Python2/3 could run these scripts well. And the HTTP performance test uses wrk as test tool, python3.5.1 as test environment.
+
 ## simple_server
 
 * Using socket to build a simple server.
@@ -21,6 +23,7 @@ HTTP Performance Test Result:
 
 * Using cgi way to solve the problem that accept and recv block each other.
 * Split accept and recv in different process.
+* When there is a request, start a new process to handle it.
 
 HTTP Performance Test Result:  
 　wrk http://127.0.0.1:8080  
@@ -36,6 +39,7 @@ HTTP Performance Test Result:
 ## cgi_threading_server
 
 * Using threading other than multiprocessing to build server, same like cgi way.
+* When there is a request, start a new thread to handle it.
 
 HTTP Performance Test Result:  
 　wrk http://127.0.0.1:8080  
