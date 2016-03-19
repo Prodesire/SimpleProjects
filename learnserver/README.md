@@ -1,7 +1,7 @@
 # LearnServer
 Learn how server runs and advantages and disadvantages of different implementations.
 
-**simple_server**
+## simple_server
 
 * Using socket to build a simple server.
 * Accept and recv block each other, so the server cannot handle multi-request in one time.
@@ -16,8 +16,8 @@ HTTP Performance Test Result:
 　　76125 requests in 10.00s, 5.30MB read  
 　Requests/sec:   7610.66  
 　Transfer/sec:    542.56KB
- 
-**cgi_server**
+
+## cgi_server
 
 * Using cgi way to solve the problem that accept and recv block each other.
 * Split accept and recv in different process.
