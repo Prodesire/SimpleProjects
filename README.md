@@ -2,7 +2,6 @@
 Practice of server, desktop tools and so on.
 
 ## Overview
-***
 The Directory structure os **SimpleProjects** shows below:
 
 **SimpleProjects**
