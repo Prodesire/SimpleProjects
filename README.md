@@ -10,3 +10,5 @@ The Directory structure os **SimpleProjects** shows below:
 improve work efficiency.
 
 * **tail** - Realize the 'tail -f filename' function of Linux.
+
+* **downloader** - Download file from a given URL in multi-threads. 
