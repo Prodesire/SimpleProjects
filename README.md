@@ -8,3 +8,5 @@ The Directory structure os **SimpleProjects** shows below:
 
 * **shortcut** - A high-configurable to which integrates most commcon operations to 
 improve work efficiency.
+
+* **tail** * - Realize the 'tail -f filename' function of Linux.
